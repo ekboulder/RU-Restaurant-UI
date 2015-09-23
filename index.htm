@@ -14,13 +14,13 @@
 
     <div class='dietaryPreference'>
           <div class='checkbox'>
-            <input type="checkbox"> Vegan
+            <input type="checkbox" ng-model="veganCheck"> Vegan
           </div>
           <div class='checkbox'>
-            <input type="checkbox"> Gluten Free
+            <input type="checkbox" ng-model="glutenCheck"> Gluten Free
           </div>
           <div class='checkbox'>
-            <input type="checkbox"> Citrus Free
+            <input type="checkbox" ng-model="citrusCheck"> Citrus Free
           </div>
       </div>  
 
@@ -31,7 +31,7 @@
         <div class='MenuItemType'>
         {{myMenuIndex}}
         </div>
-        <div class='menuItem' ng-repeat='(myElementIndex, element) in menuItem track by $index' ng-click='addToOrder(myMenuIndex, menuItem, myElementIndex, element)'>
+        <div class='menuItem' ng-class="{veganClass : (element.isVegan() && veganCheck), glutenClass: (element.isGlutenFree() && glutenCheck), citrusClass : (element.isCitrusFree() && citrusCheck)}" ng-repeat='(myElementIndex, element) in menuItem track by $index' ng-click='addToOrder(myMenuIndex, menuItem, myElementIndex, element)'>
         {{element.name}}
         </div>
       </div>
@@ -51,7 +51,9 @@
       </div>
       
       <div class='totalCost'>
-      my total cost goes here
+          <div class='costCalculation'>
+          <p>{{totalCost | currency}}</p>
+          </div>  
       </div> 
     
 

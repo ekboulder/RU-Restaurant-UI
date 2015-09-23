@@ -5,6 +5,7 @@ angular.module ('myApp',[])
 var mainControllerFunc = function ($scope, $timeout) {
 
 
+
 var foodItemArray = []
 var FoodItem = function (name, calories, vegan, glutenFree, citrusFree) {
 	this.name = name
@@ -33,14 +34,6 @@ FoodItem.prototype.stringify = function () {
 	// console.log(description)
 	return description
 }
-
-var pizza = new FoodItem ('Pizza', 400, true, true, true)
-var burger = new FoodItem ('Burger', 500, false, false, true)
-var tacos = new FoodItem ('Tacos', 400, true, false, false)
-
-foodItemArray.forEach(function(item) {
-	item.stringify()
-})
 
 
 var Drink = function (name, description, price, ingredients) {
@@ -211,6 +204,8 @@ $scope.addToOrder = function(myMenuIndex, menuItem, myElementIndex, element) {
 		$scope.myOrder.PLATES.push(element)
 	else if (myMenuIndex === 'DRINKS')
 		$scope.myOrder.DRINKS.push(element)
+
+	$scope.calculateTotal()
 }
 
 $scope.removeFromOrder = function(myMenuIndex, menuItem, myElementIndex, element) {
@@ -218,9 +213,19 @@ $scope.removeFromOrder = function(myMenuIndex, menuItem, myElementIndex, element
 		$scope.myOrder.PLATES.splice(myElementIndex,1)
 	else if (myMenuIndex === 'DRINKS')
 		$scope.myOrder.DRINKS.splice(myElementIndex,1)
+	$scope.calculateTotal()
 }
 
 
+$scope.calculateTotal = function () {
+	$scope.totalCost = 0
+	for (var itemType in $scope.myOrder) {
+		if (itemType === 'PLATES' || itemType === 'DRINKS')
+			$scope.myOrder[itemType].forEach(function (orderItem) {
+			$scope.totalCost += orderItem.price
+		})
+	}
+}
 
 
 
