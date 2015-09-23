@@ -1,0 +1,101 @@
+* {
+	box-sizing: border-box;
+}
+
+.restaurantName {
+	width: 90%;
+	/*height: 50px;*/
+	text-align: center;
+	margin: auto;
+	padding: 1rem;
+	background-color: peachpuff;
+	line-height: 50px;
+	vertical-align: middle;
+	font-size: 36px;
+}
+
+.dietaryPreference {
+	position: relative;
+	width: 90%;
+	/*height: 100px;*/
+	text-align: center;
+	margin: auto;
+	padding: 1rem;
+	background-color: white;
+	line-height: 50px;
+	vertical-align: middle;
+	border: solid 10px grey;
+}
+
+.checkbox {
+	position: relative;
+	min-width: 25%;
+	margin: auto;
+	display: inline-block;
+	color: grey;
+	line-height: 1rem;
+	vertical-align: middle;
+
+}
+
+.menuOrderWrapper {
+	position: relative;
+	width: 90%;
+	background-color: grey;
+	margin: auto;
+	overflow: hidden;
+	line-height: 100%;
+}
+
+.menuList {
+	float: left;
+	vertical-align: top;
+	/*display: inline-block;*/
+	width: 48%;
+	height: 500px;
+	margin: 10px;
+	/*padding: 2rem;*/
+	background-color: peachpuff;
+	/*border: solid 1px red;*/
+
+}
+
+.menuItemType {
+	padding: 10px;
+	margin: 10px;
+	background-color: white;
+}
+
+.menuItem {
+	padding: 10px;
+	margin: 10px;
+	color: white;
+	vertical-align: middle;
+	background-color: grey;
+}
+.orderAndCost {
+	float: right;
+	vertical-align: top;
+	/*display: inline-block;*/
+	width: 49%;
+	height: 500px;
+	margin: 10px;
+	/*padding: 2rem;*/
+	/*background-color: peachpuff;*/
+	/*border:solid 1px red;*/
+
+}
+
+.orderList {
+	width: 100%;
+	height: 300px;
+	background-color: peachpuff;
+}
+
+.totalCost {
+	width: 100%;
+	height: 100px;
+	background-color: peachpuff;
+	margin-top: 50px;
+}
+

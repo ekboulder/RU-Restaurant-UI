@@ -1,0 +1,79 @@
+<html ng-app="myApp" lang='en'>
+  <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+     	<title>Restaurant UI</title>
+     	<link rel="stylesheet" href="main.css">
+    	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  </head>
+  <body ng-controller="mainController"> 
+    
+    <div class='restaurantName'> 
+    Three Items Restaurant
+    </div>  
+
+    <div class='dietaryPreference'>
+          <div class='checkbox'>
+            <input type="checkbox"> Vegan
+          </div>
+          <div class='checkbox'>
+            <input type="checkbox"> Gluten Free
+          </div>
+          <div class='checkbox'>
+            <input type="checkbox"> Citrus Free
+          </div>
+      </div>  
+
+    <div class='menuOrderWrapper'>
+
+    <div class='menuList'>
+      <div ng-repeat='(myMenuIndex, menuItem) in myMenu track by $index'>
+        <div class='MenuItemType'>
+        {{myMenuIndex}}
+        </div>
+        <div class='menuItem' ng-repeat='(myElementIndex, element) in menuItem track by $index' ng-click='addToOrder(myMenuIndex, menuItem, myElementIndex, element)'>
+        {{element.name}}
+        </div>
+      </div>
+
+    </div>
+    
+    <div class='orderAndCost'>
+      <div class='orderList'>
+          <div ng-repeat='(myMenuIndex, menuItem) in myOrder track by $index'>
+            <div class='MenuItemType'>
+            {{myMenuIndex}}
+            </div>
+            <div class='menuItem' ng-repeat='(myElementIndex, element) in menuItem track by $index' ng-click='removeFromOrder(myMenuIndex, menuItem, myElementIndex, element)'>
+            {{element.name}}
+            </div>
+          </div>
+      </div>
+      
+      <div class='totalCost'>
+      my total cost goes here
+      </div> 
+    
+
+    </div>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+ 
+
+
+
+
+  	<script type="text/javascript" src="main.js"></script>
+  </body>
+
+</html>
